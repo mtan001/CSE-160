@@ -89,7 +89,7 @@ let g_selectedSegments=4;
 
 function drawPicture() {
   // body
-  gl.uniform4f(u_FragColor, 0.0, 0.0, 0.0, 1.0);
+  gl.uniform4f(u_FragColor, 1.0, 1.0, 1.0, 1.0);
   drawTriangle([0.35, -0.05,   0.45, 0.15,   -0.15, 0], [1, 0, 0, 1]);
   drawTriangle([0.65, -0.05,   0.7, 0.25,   0.15, -0.2]);
   drawTriangle([0.1, -0.2,   0.6, 0.04,   -0.1, 0.1]);
