@@ -1,6 +1,5 @@
 // ColoredPoint.js (c) 2012 matsuda
 
-document.getElementById("angleSlide").value = "45";
 document.getElementById("headSlide").value = "0";
 document.getElementById("frontLeftLegSlide").value = "20";
 document.getElementById("frontRightLegSlide").value = "20";
@@ -249,9 +248,6 @@ function addActionsForHtmlUI(){
   document.getElementById('backLeftLegSlide').addEventListener('mousemove', function() {g_BLLAngle = this.value; renderAllShapes(); });
   document.getElementById('backRightLegSlide').addEventListener('mousemove', function() {g_BRLAngle = this.value; renderAllShapes(); });
   document.getElementById('tailSlide').addEventListener('mousemove', function() {g_tailAngle = this.value; renderAllShapes(); });
-
-  // Camera Angle Slider
-  document.getElementById('angleSlide').addEventListener('mousemove', function() {g_globalAngle = this.value; renderAllShapes(); });
 
 }
 
