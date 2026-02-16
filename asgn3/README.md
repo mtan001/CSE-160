@@ -1,0 +1,1 @@
+used chatGPT for debugging and advice on camera rotation and block placement
