@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Change a point color</title>
+  </head>
+
+  <body onload="main()">
+    <div style="display:flex; align-items:flex-start; gap:20px;">
+      <canvas id="webgl" width="800" height="500">
+      Please use a browser that supports "canvas"
+      </canvas>
+      <div>
+        <h3 style="font-size: 40px;">Feed the Pig</h3>
+        <h2>Collect as many apples as you can and feed the hungry pig!</h2>
+        <h1>Controls:</h1>
+        <div>
+          WASD to move<br>
+          Click and Drag to rotate camera<br>
+          Q to rotate camera left<br>
+          E to rotate camera right<br>
+          F to add/delete blocks<br>
+        </div>
+        <button id="playGameButton" style="font-size:14px; margin-top: 30px;">Play Game</button>
+        <h3 style="font-size: 26px; margin-top: 20;">
+            Time Left:
+            <span id="timerDisplay" style="font-size: 25px; margin-left: 10px;">
+                15
+            </span>
+        </h3>
+        <div id="gameMessage" style="font-size:24px; color:rgb(160, 55, 55); margin-top:20px;"></div>
+      </div>
+    </div>
+
+    <p id="numdot"></p>
+
+    <p>
+    <button type="button" id="normalOnButton">Normal On</button>
+    <button type="button" id="normalOffButton">Normal Off</button>
+    <p>
+    <button type="button" id="lightOnButton">Light On</button>
+    <button type="button" id="lightOffButton">Light Off</button>
+    <p>
+    <button type="button" id="spotlightOnButton">Spotlight On</button>
+    <button type="button" id="spotlightOffButton">Spotlight Off</button>
+
+    <p>Light Color R<input type="range" min="0" max="100" value="100" class="slider" id="lightColorRSlide">
+    Light Color G<input type="range" min="0" max="100" value="100" class="slider" id="lightColorGSlide">
+    Light Color B<input type="range" min="0" max="100" value="100" class="slider" id="lightColorBSlide"></p>
+    <p>Light X <input type="range" min="-10" max="10" value="0" class="slider" id="lightXSlide">
+    Light Y <input type="range" min="-10" max="10" value="1" class="slider" id="lightYSlide">
+    Light Z <input type="range" min="-10" max="10" value="2" class="slider" id="lightZSlide"></p>
+
+    <p>Spotlight Color R<input type="range" min="0" max="100" value="100" class="slider" id="spotlightColorRSlide">
+    Spotlight Color G<input type="range" min="0" max="100" value="100" class="slider" id="spotlightColorGSlide">
+    Spotlight Color B<input type="range" min="0" max="100" value="100" class="slider" id="spotlightColorBSlide"></p>
+    <p>Spotlight X <input type="range" min="-10" max="10" value="2" class="slider" id="spotlightXSlide">
+    Spotlight Y <input type="range" min="-10" max="10" value="1" class="slider" id="spotlightYSlide">
+    Spotlight Z <input type="range" min="-10" max="10" value="2" class="slider" id="spotlightZSlide">
+    Spotlight Range <input type="range" min="1" max="10" value="1" class="slider" id="spotlightRangeSlide"></p>
+
+    <p>
+    Head <input type="range" min="-10" max="10" value="0" class="slider" id="headSlide">
+    Animation:
+    <button type="button" id="animationHeadOnButton">ON</button>
+    <button type="button" id="animationHeadOffButton">OFF</button>
+    <p>
+    Front Left Leg <input type="range" min="-5" max="45" value="20" class="slider" id="frontLeftLegSlide">
+    Animation:
+    <button type="button" id="animationFLLOnButton">ON</button>
+    <button type="button" id="animationFLLOffButton">OFF</button>
+    <p>
+    Front Right Leg <input type="range" min="-5" max="45" value="20" class="slider" id="frontRightLegSlide">
+    Animation:
+    <button type="button" id="animationFRLOnButton">ON</button>
+    <button type="button" id="animationFRLOffButton">OFF</button>
+    <p>
+    Back Left Leg <input type="range" min="0" max="50" value="25" class="slider" id="backLeftLegSlide">
+    Animation:
+    <button type="button" id="animationBLLOnButton">ON</button>
+    <button type="button" id="animationBLLOffButton">OFF</button>
+    <p>
+    Back Right Leg <input type="range" min="0" max="50" value="25" class="slider" id="backRightLegSlide">
+    Animation:
+    <button type="button" id="animationBRLOnButton">ON</button>
+    <button type="button" id="animationBRLOffButton">OFF</button>
+    <p>
+    Tail <input type="range" min="-10" max="30" value="10" class="slider" id="tailSlide">
+    Animation:
+    <button type="button" id="animationTailOnButton">ON</button>
+    <button type="button" id="animationTailOffButton">OFF</button>
+
+    <script src="lib/webgl-utils.js"></script>
+    <script src="lib/webgl-debug.js"></script>
+    <script src="lib/cuon-utils.js"></script>
+    <script src="lib/cuon-matrix-cse160.js"></script>
+    <script src="Triangle.js"></script>
+    <script src="Circle.js"></script>
+    <script src="Point.js"></script>
+    <script src="Cube.js"></script>
+    <script src="Cone.js"></script>
+    <script src="Sphere.js"></script>
+    <script src="Camera.js"></script>
+    <script src="Model.js"></script>
+    <script src="asgn4.js"></script>
+  </body>
+</html>
