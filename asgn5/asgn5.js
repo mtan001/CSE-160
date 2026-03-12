@@ -185,13 +185,15 @@ function makeInstance(geometry, color, x) {
   scene.add(cube);
  
   cube.position.x = x;
+  cube.position.y = 2;
+  cube.position.z = 13;
  
   return cube;
 }
 
 // make multiple cubes
 const cubes = [
-  //makeInstance(geometry, 0x44aa88,  0),
+  makeInstance(geometry, 0x44aa88,  -5),
   //makeInstance(geometry, 0x8844aa, -2),
   //makeInstance(geometry, 0xaa8844,  2),
 ];
@@ -398,15 +400,10 @@ function loadColorTexture( path ) {
   return texture;
 }
 
-// obj
+// cottage obj
 {
     // load obj
     const objLoader = new OBJLoader();
-    objLoader.load('public/cottage.obj', (root) => {
-    scene.add(root);
-    root.scale.set(0.05, 0.05, 0.05);
-    root.position.y = -0.5;
-  });
 
     // load obj materials
     const mtlLoader = new MTLLoader();
@@ -415,6 +412,29 @@ function loadColorTexture( path ) {
     objLoader.setMaterials(mtl);
     objLoader.load('public/cottage.obj', (root) => {
       scene.add(root);
+      //root.scale.set(0.05, 0.05, 0.05);
+      //root.position.y = -0.5;
+    });
+  });
+}
+
+// cat obj
+let cat;
+{
+    // load obj
+    const objLoader = new OBJLoader();
+
+    // load obj materials
+    const mtlLoader = new MTLLoader();
+    mtlLoader.load('public/cat.mtl', (mtl) => {
+    mtl.preload();
+    objLoader.setMaterials(mtl);
+    objLoader.load('public/cat.obj', (root) => {
+      cat = root
+      scene.add(cat);
+      cat.scale.set(0.05, 0.05, 0.05);
+      cat.position.set(1, 1, 15);
+      cat.rotation.x = -Math.PI / 2;
     });
   });
 }
@@ -422,6 +442,12 @@ function loadColorTexture( path ) {
 // animation
 function render(time) {
   time *= 0.001;  // convert time to seconds
+
+  // cat rotation
+  if (cat) {
+    cat.rotation.z = time*3;
+  }
+
   cubes.forEach((cube, ndx) => {
       const speed = 1 + ndx * .1;
       const rot = time * speed;
